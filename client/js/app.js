@@ -2,7 +2,7 @@ angular.module('myApp', ['ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     
-  $urlRouterProvider.otherwise('/products');
+  $urlRouterProvider.otherwise('/categories');
   // 
   // Now set up the states 
   $stateProvider
