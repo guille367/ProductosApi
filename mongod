@@ -1,1 +1,1 @@
-"mongod" --bind_ip=$IP --nojournalm
+"mongod" --bind_ip=$IP --nojournal
