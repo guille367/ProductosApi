@@ -2,36 +2,41 @@ angular.module('myApp')
 
     .controller('CategoryController', function($scope,CategoryService){
         
-        $scope.selectedCategory
+        $scope.Category
         $scope.selectedIndex = -1
         
         $scope.selectCategory = function(index,item){
-            $scope.selectedCategory = item
+            $scope.Category = item
             $scope.selectedIndex = index
         }
         
         $scope.cleanSelection = function (){
-            $scope.selectedCategory = {}
+            $scope.Category = {}
             $scope.selectedIndex = -1
         }
         
         $scope.save = function () {
-            //var res = CategoryService.findAll().then(function(d){
-            //})
+            if($scope.Category)
+                CategoryService.addCategory($scope.Category)
         }
-        $scope.update = function (c) {
-            
+        
+        $scope.update = function () {
+            CategoryService.update($scope.Category)
         }
+        
         $scope.delete = function(){
-            alert($scope.selectedCategory.description)
+            CategoryService.deleteCategory($scope.Category._id)
         }
-    
         
-        CategoryService.findAll().then(function(d){
+        var getCategories = function() {
+            CategoryService.findAll().then(function(d){
             $scope.categories = d    
-        })
+            })
+        }   
         
-          /*$scope.categories = [{
+        //getCategories()
+        
+          $scope.categories = [{
               name:'aaa',
               description:'www'
           },{
@@ -40,6 +45,6 @@ angular.module('myApp')
           },{
               name:'ccc',
               description:'rrr'
-          }]*/
+          }]
         
     })

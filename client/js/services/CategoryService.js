@@ -2,27 +2,27 @@ angular.module('myApp')
 
     .service('CategoryService',function($http){
         
-        let path = 'https://productosapi-ponceandresguille.c9users.io'
+        var path = 'https://productosapi-ponceandresguille.c9users.io/#'
         
-        let extractData = function(res){
+        var extractData = function(res){
             return res.data
-        };
+        }
         
         this.findAll = function(){
-            return $http.get(path + '/categorias')
+            return $http.get('/categories')
                 .then(extractData)
         }
         
         this.addCategory = function(c){
-            
+            $http.post('/categories',c)
         }
         
         this.updateCategory = function(c){
-            
+            $http.put('/categories',c)
         }
         
         this.deleteCategory = function(categoryID){
-            
+            $http.delete('/categories' + CategoryID)
         }
         
     })

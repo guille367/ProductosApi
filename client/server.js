@@ -5,10 +5,11 @@
 //
 var http = require('http')
 var path = require('path')
-
 var express = require('express')
+var bodyParser = require('body-parser')
 
-var routerCategories = require('./apirest/categories/router/routerCategoriess')
+var routerCategories = require('./apirest/categories/router/routerCategories')
+
 var router = express()
 var server = http.createServer(router)
 
@@ -23,11 +24,15 @@ var MongoClient = require("mongodb").MongoClient;
         }
 })*/
 
+router.use(bodyParser.json())
 router.use(express.static(path.resolve(__dirname)))
+router.use(routerCategories)
 
-router.use('/categorias', function(req,res) {
+router.use('/categories',function(req,res) {
     
-    MongoClient.connect("mongodb://"+ process.env.IP +":27017/categories",function(error,db){
+    console.log('acá llegó ehh..')
+    
+    /*MongoClient.connect("mongodb://"+ process.env.IP +":27017/categories",function(error,db){
         if(!error){
          var collection = db.collection('categories');
          collection.find({}).toArray(function (err,d) {
@@ -39,12 +44,11 @@ router.use('/categorias', function(req,res) {
          console.log(error) //failed to connect to [127.4.68.129:8080]               
         }
         
-        })
+        })*/
 
 })
 
 server.listen(process.env.PORT || 3000, process.env.IP , function(){
   var addr = server.address()
-  routerCategories.saludar()
   console.log('Server listening at port: 3000')
 })

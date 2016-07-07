@@ -11,7 +11,8 @@
                 <tbody>
                     <tr ng-repeat="c in categories" ng-click="selectCategory($index,c)" ng-class="{'selected':$index == selectedIndex}">
                         <th class="col-md-3">{{c.name}}</th>
-                        <th class="col-md-9">{{c.description}}</th>
+                        <th class="col-md-6">{{c.description}}</th>
+                        <th class="col-md-3" hidden="true">{{c.id}}</th>
                     </tr>
                 </tbody>
             </table>
@@ -20,7 +21,7 @@
             <table>
                 <tr>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
-                        <input type="button" value="Editar" ng-click="showForm()" class="btn btn-warning"/>
+                        <input type="button" value="Editar" ng-click="save()" class="btn btn-warning"/>
                     </td>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
                         <input type="button" value="Borrar" ng-click="delete()" class="btn btn-danger"/>
@@ -29,7 +30,7 @@
                         <input type="button" value="Limpiar" ng-click="cleanSelection()" class="btn btn-danger"/>
                     </td>
                     <td class="col-md-2" ng-hide="selectedIndex != -1">
-                        <input type="button" value="Agregar" ng-click=""  class="btn btn-primary"/>
+                        <input type="button" value="Agregar" ng-click="doPost()"  class="btn btn-primary"/>
                     </td>
                 </tr>
             </table>
