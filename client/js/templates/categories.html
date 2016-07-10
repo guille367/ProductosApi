@@ -1,5 +1,5 @@
 
-<div class="row">
+<div>
         <div class="col-md-12">
             <table class="table">
                 <thead>
@@ -12,7 +12,7 @@
                     <tr ng-repeat="c in categories" ng-click="selectCategory($index,c)" ng-class="{'selected':$index == selectedIndex}">
                         <th class="col-md-3">{{c.name}}</th>
                         <th class="col-md-6">{{c.description}}</th>
-                        <th class="col-md-3" hidden="true">{{c.id}}</th>
+                        <th class="col-md-3" hidden="true">{{c._id}}</th>
                     </tr>
                 </tbody>
             </table>
@@ -21,7 +21,7 @@
             <table>
                 <tr>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
-                        <input type="button" value="Editar" ng-click="save()" class="btn btn-warning"/>
+                        <input type="button" value="Editar" ng-click="openDialog()" class="btn btn-warning"/>
                     </td>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
                         <input type="button" value="Borrar" ng-click="delete()" class="btn btn-danger"/>
@@ -30,18 +30,52 @@
                         <input type="button" value="Limpiar" ng-click="cleanSelection()" class="btn btn-danger"/>
                     </td>
                     <td class="col-md-2" ng-hide="selectedIndex != -1">
-                        <input type="button" value="Agregar" ng-click="doPost()"  class="btn btn-primary"/>
+                        <input type="button" value="Agregar" ng-click="openDialog()" class="btn btn-primary"/>
                     </td>
                 </tr>
             </table>
             
         </div>
+        
+            <script type="text/ng-template" id="crudDialog">
+                <table>
+                    <tr>
+                        <td>
+                            Nombre: 
+                        </td>
+                        <td> 
+                            <input type="text" ng-model="category.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Descripción: 
+                        </td>   
+                        <td>
+                            <input type="text" ng-model="category.description"/>
+                        </td>
+                        <td>
+                            <input type="hidden" ng-model="category._id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
+                    </tr>
+                </table>
+                
+                
+            </script>
+        
+       
+    
+
 </div>
 
-<style type="text/css">
+<style type="text/css"> 
     .selected{
         background-color:black;
         color:white;
         font-weight:bold;
     }
+    
 </style>

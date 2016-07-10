@@ -22,7 +22,7 @@ angular.module('myApp')
         }
         
         this.deleteCategory = function(categoryID){
-            $http.delete('/categories' + CategoryID)
+            $http.delete('/categories/' + categoryID)
         }
         
     })

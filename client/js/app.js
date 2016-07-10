@@ -1,9 +1,9 @@
-angular.module('myApp', ['ui.router'])
+angular.module('myApp',['ui.router','ngDialog'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     
   $urlRouterProvider.otherwise('/categories');
-  // 
+  
   // Now set up the states 
   $stateProvider
   
