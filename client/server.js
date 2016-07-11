@@ -8,8 +8,9 @@ var path = require('path')
 var express = require('express')
 var bodyParser = require('body-parser')
 
-var routerCategories = require('./apirest/categories/router/routerCategories')
 
+var routerCategories = require('./apirest/categories/router/routerCategories')
+var routerProducts = require('./apirest/categories/router/routerProducts')
 var router = express()
 var server = http.createServer(router)
 
@@ -26,11 +27,12 @@ var MongoClient = require("mongodb").MongoClient;
 
 router.use(bodyParser.json())
 router.use(express.static(path.resolve(__dirname)))
+
 router.use(routerCategories)
+router.use(routerProducts)
 
 router.use('/categories',function(req,res) {
     
-    console.log('acá llegó ehh..')
     
     /*MongoClient.connect("mongodb://"+ process.env.IP +":27017/categories",function(error,db){
         if(!error){
