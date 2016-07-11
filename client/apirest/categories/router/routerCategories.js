@@ -24,5 +24,5 @@ routerCategories.put('/categories',function (req,res) {
 routerCategories.delete('/categories/:id',function (req,res) {
   categories.delete(req.params.id)
 })
-
+git 
 module.exports = routerCategories

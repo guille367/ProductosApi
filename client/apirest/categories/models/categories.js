@@ -35,6 +35,6 @@ exports.update = function(category){
         .findOneAndUpdate( { _id: oid },
         { $set: { name: category.name, description: category.description } },
         { upsert: true },function(){ db.close() } )
-        
+        // QUE ONDA NO FUNCA MA CON EL CLOSE??
   })
 }

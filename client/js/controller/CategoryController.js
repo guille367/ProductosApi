@@ -11,8 +11,7 @@ angular.module('myApp')
         }
         
         $scope.cleanSelection = function (){
-            $scope.category = {}
-            $scope.selectedIndex = -1
+            refresh()
         }
         
         $scope.openDialog = function () {
@@ -26,33 +25,36 @@ angular.module('myApp')
         }
         
         $scope.save = function () {
-           /* if($scope.category._id){
-                CategoryService.updateCategory($scope.category)
-                return;
-            }*/
-            
             CategoryService.addCategory($scope.category)
-            ngDialog.close()
-            
-            getCategories()
+            refresh()
         }
         
         $scope.update = function () {
             CategoryService.updateCategory($scope.category)
-            ngDialog.close()
-            getCategories()
+            console.log($scope.categories)
+            refresh()
         }
         
         $scope.delete = function(){
             CategoryService.deleteCategory($scope.category._id)
-            getCategories()
+            refresh()
         }
         
+        
         var getCategories = function() {
+            console.log($scope.categories)
             CategoryService.findAll().then(function(d){
             $scope.categories = d    
+            console.log(d)
             })
+            
         }   
+        
+        function refresh(){
+            $scope.category = {}
+            $scope.selectedIndex = -1
+            getCategories()
+        }
         
         getCategories()
         
