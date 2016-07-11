@@ -2,8 +2,6 @@ angular.module('myApp')
 
     .service('CategoryService',function($http){
         
-        var path = 'https://productosapi-ponceandresguille.c9users.io/#'
-        
         var extractData = function(res){
             return res.data
         }
