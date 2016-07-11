@@ -4,8 +4,10 @@ var categories = require('../models/categories')
 
 routerCategories.get('/categories',function (req,res) {
   categories.get(function(err,data){
-      if(!err)
+      if(!err){
+        console.log('termino get')
         res.json(data)
+      }
       else  
         console.log(err.message)
   })
@@ -23,4 +25,4 @@ routerCategories.delete('/categories/:id',function (req,res) {
   categories.delete(req.params.id)
 })
 
-module.exports = routerCategories;
+module.exports = routerCategories
