@@ -4,6 +4,7 @@ angular.module('myApp')
         
         $scope.products = []
         $scope.product = {}
+        $scope.selectedIndex = -1
         
         $scope.categories = []
         

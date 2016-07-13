@@ -36,42 +36,39 @@
             </table>
             
         </div>
-        
-            <script type="text/ng-template" id="crudDialog">
-                <table>
-                    <tr>
-                        <td>
-                            Nombre: 
-                        </td>
-                        <td> 
-                            <input type="text" ng-model="category.name"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Descripción: 
-                        </td>   
-                        <td>
-                            <input type="text" ng-model="category.description"/>
-                        </td>
-                        <td>
-                            <input type="hidden" ng-model="category._id"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
-                    </tr>
-                </table>
-                
-                
-            </script>
-        
-       
-    
-
 </div>
 
+<script type="text/ng-template" id="crudDialog">
+    <table>
+        <tr>
+            <td>
+                Nombre: 
+            </td>
+            <td> 
+                <input type="text" ng-model="category.name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Descripción: 
+            </td>   
+            <td>
+                <input type="text" ng-model="category.description"/>
+            </td>
+            <td>
+                <input type="hidden" ng-model="category._id"/>
+            </td>
+        </tr>
+        <tr>
+            <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
+        </tr>
+    </table>
+    
+    
+</script>
+
 <style type="text/css"> 
+
     .selected{
         background-color:black;
         color:white;

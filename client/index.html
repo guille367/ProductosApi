@@ -2,8 +2,8 @@
 <html lang="en" ng-app="myApp">
   <head>
     <title></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     
     <style type="text/css">
       
@@ -17,13 +17,14 @@
   </head>
   <body>
     <div ng-controller="FormController">
-      <div class="navbar navbar-fixed-top navbar-inverse">
-        <div class="navbar-inner">
-        <div class="pull-right">
-            <a ui-sref="categories" class="brand" ng-click="changeTitle('Categorias')">Categorias</a>
-            <a ui-sref="products" class="brand" ng-click="changeTitle('Productos')">Productos</a>
+      <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a ui-sref="categories" class="navbar-brand" ng-click="changeTitle('Categorias')">Categorias</a>
+            <a ui-sref="products" class="navbar-brand" ng-click="changeTitle('Productos')">Productos</a>
           </div>
         </div>
+      </nav>  
            
         
       
@@ -37,7 +38,7 @@
     </fieldset> -->
     
     </div>
-    
+    </div>
     <div class="container" ui-view>
                   
     </div>
