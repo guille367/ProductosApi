@@ -4,30 +4,45 @@
     <title></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    
+    <style type="text/css">
+      
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    
+    </style>
+    
   </head>
   <body>
-    <div class="container" ng-controller="FormController">
+    <div ng-controller="FormController">
       <div class="navbar navbar-fixed-top navbar-inverse">
         <div class="navbar-inner">
-      <div class="pull-right">
+        <div class="pull-right">
             <a ui-sref="categories" class="brand" ng-click="changeTitle('Categorias')">Categorias</a>
             <a ui-sref="products" class="brand" ng-click="changeTitle('Productos')">Productos</a>
           </div>
         </div>
            
-        <fieldset class="scheduler-border">
+        
+      
+    
+    
+   <!-- <fieldset class="scheduler-border">
           <legend class="scheduler-border">{{title}}</legend>
           <div class="control-group">
-             <div class="container" ui-view>
-                  
-             </div>
+             
           </div>
-        </fieldset>
-      </div>
+    </fieldset> -->
+    
+    </div>
+    
+    <div class="container" ui-view>
+                  
     </div>
     
     
-    </style>
     
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>

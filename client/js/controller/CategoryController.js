@@ -2,6 +2,7 @@ angular.module('myApp')
 
     .controller('CategoryController', function($scope,CategoryService,ngDialog){
         
+        $scope.categories = []
         $scope.category = {}
         $scope.selectedIndex = -1
         
@@ -31,7 +32,6 @@ angular.module('myApp')
         
         $scope.update = function () {
             CategoryService.updateCategory($scope.category)
-            console.log($scope.categories)
             refresh()
         }
         
@@ -42,10 +42,8 @@ angular.module('myApp')
         
         
         var getCategories = function() {
-            console.log($scope.categories)
             CategoryService.findAll().then(function(d){
             $scope.categories = d    
-            console.log(d)
             })
             
         }   

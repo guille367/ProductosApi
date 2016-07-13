@@ -1,23 +1,23 @@
 
-<div>
+<div class="row">
         <div class="col-md-12">
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="col-md-3">Nombre</th>
-                        <th class="col-md-9">Descripción</th>
+                        <th class="col-md-6">Nombre</th>
+                        <th class="col-md-6">Descripción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="c in categories" ng-click="selectCategory($index,c)" ng-class="{'selected':$index == selectedIndex}">
-                        <th class="col-md-3">{{c.name}}</th>
+                        <th class="col-md-6">{{c.name}}</th>
                         <th class="col-md-6">{{c.description}}</th>
-                        <th class="col-md-3" hidden="true">{{c._id}}</th>
+                        <th hidden="true">{{c._id}}</th>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <table>
                 <tr>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
@@ -29,7 +29,7 @@
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
                         <input type="button" value="Limpiar" ng-click="cleanSelection()" class="btn btn-danger"/>
                     </td>
-                    <td class="col-md-2" ng-hide="selectedIndex != -1">
+                    <td class="col-md-6" ng-hide="selectedIndex != -1">
                         <input type="button" value="Agregar" ng-click="openDialog()" class="btn btn-primary"/>
                     </td>
                 </tr>
