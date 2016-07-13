@@ -1,6 +1,6 @@
 var mongo = require('mongodb')
 var client = mongo.MongoClient
-var dbURL = 'mongodb://' + process.env.IP + ':27017/categories'
+var dbURL = 'mongodb://' + process.env.IP + ':27017/productosapi'
 var db = null
 
 exports.connect = function(callback){

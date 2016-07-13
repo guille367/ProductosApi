@@ -1,6 +1,6 @@
 var express = require('express')
 var routerProducts = express()
-var products = require('./models/products')
+var products = require('../models/products')
 
 routerProducts.get('/products',function(req,res){
     products.get(function(err,data){
