@@ -1,11 +1,8 @@
 var mongo = require('mongodb')
 var client = mongo.MongoClient
-<<<<<<< HEAD
-var dbURL = 'mongodb://' + process.env.IP + ':27017/productosapi'
-=======
 //var dbURL = 'mongodb://' + process.env.IP + ':27017/productosapi'
-var dbURL = 'mongodb://localhost:27017/productosapi'
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
+//var dbURL = 'mongodb://localhost:27017/productosapi'
+var dbURL = 'mongodb://' + process.env.IP + ':27017/productosapi'
 var db = null
 
 exports.connect = function(callback){

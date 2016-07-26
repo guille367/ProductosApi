@@ -8,18 +8,11 @@ var path = require('path')
 var express = require('express')
 var bodyParser = require('body-parser')
 
-<<<<<<< HEAD
-
-var routerCategories = require('./apirest/categories/router/routerCategories')
-var routerProducts = require('./apirest/categories/router/routerProducts')
-var router = express()
-=======
 /////
 var routerCategories = require('./apirest/categories/router/routerCategories')
 var routerProducts = require('./apirest/categories/router/routerProducts')
 var router = express()
 var cors = require('cors')
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
 var server = http.createServer(router)
 
 var MongoClient = require("mongodb").MongoClient;
@@ -36,21 +29,13 @@ var MongoClient = require("mongodb").MongoClient;
 router.use(bodyParser.json())
 router.use(express.static(path.resolve(__dirname)))
 
-<<<<<<< HEAD
-=======
 router.use(cors())
 
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
 router.use(routerCategories)
 router.use(routerProducts)
 
 router.use('/categories',function(req,res) {
-<<<<<<< HEAD
-    
-=======
-          console.log("se")
 
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
     
     /*MongoClient.connect("mongodb://"+ process.env.IP +":27017/categories",function(error,db){
         if(!error){

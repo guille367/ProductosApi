@@ -33,13 +33,9 @@ angular.module('myApp')
         
         $scope.save = function(){
             ProductService.addProduct($scope.product)
-<<<<<<< HEAD
-            refresh()
-=======
                 .then(function(res){
                     refresh()   
                 })
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
         }
         
         $scope.update = function () {
@@ -48,13 +44,9 @@ angular.module('myApp')
         
         $scope.delete = function(){
             ProductService.deleteProduct($scope.product._id)
-<<<<<<< HEAD
-            refresh()
-=======
                 .then(function(res){
                     refresh()  
                 })
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
         }
         
         var getProducts = function(){

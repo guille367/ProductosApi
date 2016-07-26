@@ -10,19 +10,11 @@ exports.get = function(callback){
     })
 }
 
-<<<<<<< HEAD
-exports.add = function(product){
-    conn.connect(function(err,db){
-        console.log('Add Product: ' + product)
-        db.collection(DB_COLLECTION)
-            .insert(product)
-=======
 exports.add = function(product,callback){
     conn.connect(function(err,db){
         console.log('Add Product: ' + product)
         db.collection(DB_COLLECTION)
             .insertOne(product,callback)
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
     })
 }
 
