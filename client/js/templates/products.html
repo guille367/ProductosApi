@@ -1,0 +1,107 @@
+<div>
+    <div class="row">
+        
+        <div class="col-md-12">
+            <table>
+                <tr ng-hide="selectedIndex == -1">
+                    <td class="col-md-4">
+                        <input type="button" value="Editar" ng-click="openDialog()" class="btn btn-warning"/>
+                    </td>
+                    <td class="col-md-4">
+                        <input type="button" value="Borrar" ng-click="delete()" class="btn btn-danger"/>
+                    </td>
+                    <td class="col-md-4">
+                        <input type="button" value="Limpiar" ng-click="cleanSelection()" class="btn btn-danger"/>
+                    </td>
+                </tr>
+                <tr ng-hide="selectedIndex != -1">
+                    <td class="col-md-12" >
+                        <input type="button" value="Agregar" ng-click="openDialog()" class="btn btn-primary"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td class="col-md-3">Precio</td>
+                        <td class="col-md-3">Categoría</td>
+                        <td class="col-md-3">Nombre</td>
+                        <td class="col-md-3">Descripción</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in products" ng-click="selectProduct($index,p)" ng-class="{'selected':$index == selectedIndex}">
+                        <td class="col-md-3">${{p.price}}</td>
+                        <td class="col-md-3">{{p.category}}</td>
+                        <td class="col-md-3">{{p.name}}</td>
+                        <td class="col-md-3">{{p.description}}</td>
+                    </tr>    
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+    
+    
+    <script type="text/ng-template" id="crudDialog">
+        <table>
+            <tr>
+                <td>
+                    Precio: 
+                </td>
+                <td> 
+                    <input type="text" ng-model="product.price"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Categoría: 
+                </td>   
+                <td>
+                    <select ng-model="product.category">
+                        <option ng-repeat="c in categories">
+                            {{c.name}}
+                        </option>
+                    <select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nombre:
+                </td>
+                <td>
+                    <input type="text" ng-model="product.name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Descripción:
+                </td>
+                <td>
+                    <input type="text" ng-model="product.description"/>
+                </td>
+                <td>
+                    <input type="hidden" ng-model="product._id"/>
+                </td>
+            </tr>
+            <tr>
+                <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
+            </tr>
+        </table>
+        
+        
+    </script>
+    
+</div>
+
+<style type="text/css"> 
+    .selected{
+        background-color:black;
+        color:white;
+        font-weight:bold;
+    }
+    
+</style>
