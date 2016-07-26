@@ -3,15 +3,19 @@ var DB_COLLECTION = 'categories'
 
 exports.get = function (callback) {
   conn.connect(function(err,db){
+<<<<<<< HEAD
     
     console.log('Getteo duro')
     
+=======
+>>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
     db.collection(DB_COLLECTION)
       .find({})
       .toArray(callback)
   })
 }
 
+<<<<<<< HEAD
 exports.add = function (category) {
   conn.connect(function(err,db){
     
@@ -21,14 +25,28 @@ exports.add = function (category) {
       .insert(category)
   })
 }
+=======
+exports.add = function (category,callback) {
+  conn.connect(function(err,db){
+    var collection = db.collection(DB_COLLECTION)
+      collection.insertOne(category,callback)
+    })
+  }
+
+
+
+>>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
 
 exports.delete = function (id) {
   var oid = conn.ObjectID(id)
   
   conn.connect(function(err, db) {
+<<<<<<< HEAD
     
       console.log('Delete: ' + id)
       
+=======
+>>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
       db.collection(DB_COLLECTION)
         .findOneAndDelete({ _id: oid })      
   })
@@ -38,9 +56,12 @@ exports.delete = function (id) {
 exports.update = function(category){
   conn.connect(function(err, db) {
       var oid = conn.ObjectID(category._id)
+<<<<<<< HEAD
       
       console.log('update: ' + oid);
       
+=======
+>>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
       db.collection(DB_COLLECTION)
         .findOneAndUpdate( { _id: oid },
         { $set: { name: category.name, description: category.description } },

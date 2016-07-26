@@ -8,6 +8,10 @@
   "dependencies": {
     "angular-ui-router": "^0.3.1",
     "async": "~0.2.8",
+<<<<<<< HEAD
+=======
+    "cors": "^2.7.1",
+>>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
     "express": "~3.2.4",
     "mongo": "^0.1.0",
     "mongodb": "^2.1.18",
