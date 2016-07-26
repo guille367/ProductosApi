@@ -9,13 +9,13 @@ angular.module('myApp',['ui.router','ngDialog'])
   
     .state('products', {
       url: '/products',
-      templateUrl: 'js/templates/products.html',
+      templateUrl: './js/templates/products.html',
       controller: 'ProductController'
     })
     
     .state('categories', {
       url: '/categories',
-      templateUrl: 'js/templates/categories.html',
+      templateUrl: './js/templates/categories.html',
       controller: 'CategoryController'
     });
     

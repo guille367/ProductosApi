@@ -2,7 +2,7 @@ angular.module('myApp')
 
     .service('CategoryService',function($http){
         
-        path = 'http://localhost:3000'
+        path = 'https://localhost:3000'
         //path = ''
     
         var extractData = function(res){

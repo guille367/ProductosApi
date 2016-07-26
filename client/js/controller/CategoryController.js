@@ -27,35 +27,23 @@ angular.module('myApp')
         
         $scope.save = function () {
             CategoryService.addCategory($scope.category)
-<<<<<<< HEAD
-            refresh()
-=======
                 .then(function(res){
                     refresh()
                 })
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
         }
         
         $scope.update = function () {
             CategoryService.updateCategory($scope.category)
-<<<<<<< HEAD
-            refresh()
-=======
                 .then(function(res){
                     refresh()  
                 })
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
         }
         
         $scope.delete = function(){
             CategoryService.deleteCategory($scope.category._id)
-<<<<<<< HEAD
-            refresh()
-=======
                 .then(function(res){
                     refresh()  
                 })
->>>>>>> d27a5170aaf392f571496d7b5e67183b10d895d7
         }
         
         
