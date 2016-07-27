@@ -1,0 +1,44 @@
+<md-dialog aria-label=""  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Categorias</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+        {{category._id}}
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td>
+                        Nombre: 
+                    </td>
+                    <td> 
+                        <input type="text" ng-model="category.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Descripción: 
+                    </td>   
+                    <td>
+                        <input type="text" ng-model="category.description"/>
+                    </td>
+                    <td>
+                        <input type="hidden" ng-model="category._id"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>     

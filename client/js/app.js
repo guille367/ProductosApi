@@ -1,4 +1,4 @@
-angular.module('myApp',['ui.router','ngDialog'])
+angular.module('myApp',['ui.router','ngDialog','ngMaterial'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     

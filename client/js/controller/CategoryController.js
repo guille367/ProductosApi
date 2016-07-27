@@ -1,21 +1,24 @@
 angular.module('myApp')
 
-    .controller('CategoryController', function($scope,CategoryService,ngDialog){
+    .controller('CategoryController', function($scope,CategoryService,$mdDialog,$mdMedia){
         
         $scope.categories = []
         $scope.category = {}
         $scope.selectedIndex = -1
+        $scope.isOpen
         
         $scope.selectCategory = function(index,item){
             $scope.category = item
             $scope.selectedIndex = index
+            $scope.indiceSeleccionado = index
+            $scope.isOpen = true
         }
         
         $scope.cleanSelection = function (){
             refresh()
         }
         
-        $scope.openDialog = function () {
+        /*$scope.openDialog = function () {
             
             ngDialog.openConfirm({
                     template: 'crudDialog',
@@ -23,7 +26,7 @@ angular.module('myApp')
                     scope:$scope
                 })
                 
-        }
+        }*/
         
         $scope.save = function () {
             CategoryService.addCategory($scope.category)
@@ -41,8 +44,8 @@ angular.module('myApp')
         
         $scope.delete = function(){
             CategoryService.deleteCategory($scope.category._id)
-                .then(function(res){
-                    refresh()  
+                .then(function(d){
+                    refresh()
                 })
         }
         
@@ -58,8 +61,31 @@ angular.module('myApp')
             $scope.category = {}
             $scope.selectedIndex = -1
             getCategories()
+            $mdDialog.hide()
+        }
+        
+     
+        $scope.shownav = function(){
+            $scope.selectedIndex = -2
+        }
+        
+        $scope.closeNav = function(){
+            $scope.selectedIndex = -1
         }
         
         getCategories()
+        
+        $scope.showAdvanced = function(ev) {
+            console.log($scope.category)
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+            $mdDialog.show({
+              controller: 'CategoryController',
+              templateUrl: 'js/templates/crudCategories.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              clickOutsideToClose:true,
+              fullscreen: useFullScreen
+        })
+        }
         
     })

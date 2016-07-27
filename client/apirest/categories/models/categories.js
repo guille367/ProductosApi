@@ -18,27 +18,27 @@ exports.add = function (category,callback) {
   }
 
 
-
-
-exports.delete = function (id) {
+exports.delete = function (id, callback) {
   var oid = conn.ObjectID(id)
   
   conn.connect(function(err, db) {
 
       db.collection(DB_COLLECTION)
-        .findOneAndDelete({ _id: oid })      
+        .findOneAndDelete({ _id: oid }, callback)      
   })
   
 }
 
-exports.update = function(category){
+exports.update = function(category,callback){
   conn.connect(function(err, db) {
       var oid = conn.ObjectID(category._id)
 
       db.collection(DB_COLLECTION)
         .findOneAndUpdate( { _id: oid },
         { $set: { name: category.name, description: category.description } },
-        { returnOriginal: false },function(err,c){ console.log("termine de updatear: " + c.name) })
+      { //  Options
+        returnOriginal: false
+      },callback)
         // QUE ONDA NO FUNCA MA CON EL CLOSE??
   })
 }

@@ -26,4 +26,4 @@ routerCategories.delete('/categories/:id',function (req,res) {
     })
 })
 
-module.exports = routerCategories
+module.exports = routerCategories;

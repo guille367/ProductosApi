@@ -61,6 +61,14 @@ angular.module('myApp')
             getProducts()
         }
         
+        $scope.shownav = function(){
+            $scope.selectedIndex = -2
+        }
+        
+        $scope.closeNav = function(){
+            $scope.selectedIndex = -1
+        }
+        
         getProducts()
         
     })

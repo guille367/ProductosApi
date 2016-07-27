@@ -1,6 +1,6 @@
 
 <div class="row">
-        <div class="col-md-12">
+    <div class="col-md-12">
             <table class="table">
                 <thead>
                     <tr>
@@ -17,7 +17,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-12">
+       <!-- <div class="col-md-12">
             <table>
                 <tr>
                     <td class="col-md-2" ng-hide="selectedIndex == -1">
@@ -33,12 +33,47 @@
                         <input type="button" value="Agregar" ng-click="openDialog()" class="btn btn-primary"/>
                     </td>
                 </tr>
-            </table>
+            </table> -->
             
         </div>
 </div>
 
-<script type="text/ng-template" id="crudDialog">
+
+
+<nav class="navbar-fixed-bottom">
+    <md-fab-toolbar md-open="isOpen" >
+        <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-fab md-primary">
+                <md-icon md-svg-src="img/icons/ic_menu_black_24px.svg"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <div ng-show="selectedIndex == -1">  
+                    <md-button ng-click="showAdvanced($event)" aria-label="comment" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_add_black_24px.svg"></md-icon>
+                    </md-button>
+                </div> 
+                <div ng-show="selectedIndex >= 0">
+                    <md-button aria-label="label" ng-click="delete()" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_remove_black_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button ng-click="showAdvanced($event)" aria-label="photo" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_update_black_24px.svg"></md-icon>
+                    </md-button>  
+                </div>
+                <md-button class="md-right" aria-label="photo" class="md-icon-button" ng-click="closeNav()">
+                  <md-icon md-svg-src="img/icons/ic_clear_black_24px.svg"></md-icon>
+                </md-button> 
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+</nav> 
+     
+
+     
+     
+<!--<script type="text/ng-template" id="crudDialog">
     <table>
         <tr>
             <td>
@@ -62,8 +97,10 @@
         <tr>
             <input type="button" class="btn btn-primary" value="Confirmar" ng-click="selectedIndex < 0 ? save() : update()"/>
         </tr>
-    </table>
+    </table>-->
     
+   
+
     
 </script>
 

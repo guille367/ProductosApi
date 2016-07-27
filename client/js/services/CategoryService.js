@@ -2,8 +2,8 @@ angular.module('myApp')
 
     .service('CategoryService',function($http){
         
-        path = 'https://localhost:3000'
-        //path = ''
+        // = 'https://localhost:3000'
+        path = ''
     
         var extractData = function(res){
             return res.data
@@ -26,7 +26,7 @@ angular.module('myApp')
         
         this.deleteCategory = function(categoryID){
             return $http.delete(path + '/categories/' + categoryID)
-                .then(extractData)
+                .then(function(){return 'arre'})
         }
         
     })

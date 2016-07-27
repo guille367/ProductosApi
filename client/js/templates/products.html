@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         
-        <div class="col-md-12">
+    <!--    <div class="col-md-12">
             <table>
                 <tr ng-hide="selectedIndex == -1">
                     <td class="col-md-4">
@@ -20,7 +20,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> -->
     
         <div class="col-md-12">
             <table class="table">
@@ -45,8 +45,36 @@
     
     </div>
     
-    
-    <script type="text/ng-template" id="crudDialog">
+<nav class="navbar-fixed-bottom">
+    <md-fab-toolbar md-open="isOpen" >
+        <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-fab md-primary" ng-click="shownav()">
+                <md-icon md-svg-src="img/icons/ic_menu_black_24px.svg"></md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+            <md-fab-actions class="md-toolbar-tools">
+                <div ng-show="selectedIndex == -2">  
+                    <md-button aria-label="comment" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_add_black_24px.svg"></md-icon>
+                    </md-button>
+                </div> 
+                <div ng-show="selectedIndex >= 0">
+                    <md-button aria-label="label" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_remove_black_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button aria-label="photo" class="md-icon-button">
+                      <md-icon md-svg-src="img/icons/ic_update_black_24px.svg"></md-icon>
+                    </md-button>  
+                </div>
+                <md-button class="md-right" aria-label="photo" class="md-icon-button" ng-click="closeNav()">
+                  <md-icon md-svg-src="img/icons/ic_clear_black_24px.svg"></md-icon>
+                </md-button> 
+            </md-fab-actions>
+        </md-toolbar>
+    </md-fab-toolbar>
+</nav> 
+ <!--   <script type="text/ng-template" id="crudDialog">
         <table>
             <tr>
                 <td>
@@ -93,7 +121,7 @@
         </table>
         
         
-    </script>
+    </script> -->
     
 </div>
 

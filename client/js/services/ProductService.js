@@ -2,8 +2,8 @@ angular.module('myApp')
 
     .service('ProductService',function($http){
         
-        path = 'http://localhost:3000'
-        //path = ''
+        //path = 'http://localhost:3000'
+        path = ''
     
         var extractData = function (res) {
             return res.data
@@ -25,7 +25,7 @@ angular.module('myApp')
         
         this.deleteProduct = function(id){
             return $http.delete(path +'/products/' + id )
-                .then(extractData)
+                .then(alert('done'))
         }
        
     })
